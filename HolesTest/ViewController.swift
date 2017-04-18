@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     //MARK: Properties
     
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var hole1ImageView: UIImageView!
     @IBOutlet weak var hole2ImageView: UIImageView!
     @IBOutlet weak var hole3ImageView: UIImageView!
@@ -35,12 +36,12 @@ class ViewController: UIViewController {
     let waitTime = 2.0
     let countInterval = 0.1
     let targetAnimal = "groundhog"
-    
-    //ToDo create AnimalUIImageView class that is subclass of UIImageView. It should have a show time, hide ttime, and a position (already got that), and clickable (got that)
-    //ToDo create a holeUIImageView class that has rect with it, and true/false got animal on it
+    let marginLeft = 10
+    let marginRight = 200
+    let marginTop = 20
+    let marginBottom = 180
     
     //ToDo: Create offsets for each animal so they apear right on the hole
-    //ToDo: Trim the images so they appear right over the hole
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class ViewController: UIViewController {
         //ToDo: Create hole images programatically so there can be any number of holes
         
         //Create array vars
+        newHole.addAnimal(animalName: "badger")
         holes = [hole1ImageView, hole2ImageView, hole3ImageView]
         animals = ["elephant": elephantImageView, "badger": badgerImageView, "groundhog": groundhogImageView]
         //just create placeholder array to fill later
@@ -59,6 +61,36 @@ class ViewController: UIViewController {
         for hole in holes {
             placeHoles(hole: hole, index: holes.index(of: hole)!)
         }
+        
+        //Try placing a hole class
+        //var hole4 = Hole(point: spawnAtRandomPosition())
+        //var boxFrame: CGRect
+        //var holeImage: UIImageView
+        
+        var newHole = holeView(point: spawnAtRandomPosition())
+        view.addSubview(newHole)
+        
+        
+        
+        //init(point: CGPoint)
+        
+        //let holeFrame = CGRect(origin: holePoint, size: sizeHoleDefault)
+    
+        /*
+        let holeImage = UIImage(named: "hole")
+        let holeImageView = UIImageView(image: holeImage)
+        
+        let point = spawnAtRandomPosition()
+        let holePoint = CGPoint(x: point.x, y: point.y - 88)
+        
+        let sizeHoleDefault = CGSize(width: 80, height: 80)
+        let holeFrame = CGRect(origin: holePoint, size: sizeHoleDefault)
+        holeImageView.frame = holeFrame
+        
+        let sizeFrameDefault = CGSize(width: 80, height: 168)
+        let boxFrame = CGRect(origin: point, size: sizeFrameDefault)
+        view.addSubview(holeImageView)
+        */
         
         //Randomly decide when animals should appear
         for (name, _) in animals {
@@ -218,10 +250,10 @@ class ViewController: UIViewController {
         
         //Set max and min of frame
         //ToDo: set max min programatically
-        let frameMaxHeight = 600 // Int(CGRectGetMaxX(self.frame))
-        let frameMinHeight = 64 //Int(CGRectGetMinX(self.frame))
-        let frameMaxWidth = 330//Int(CGRectGetMidY(self.frame))
-        let frameMinWidth = 50 //Int(CGRectGetMinY(self.frame))
+        let frameMaxHeight = Int(mainView.frame.height) - marginBottom
+        let frameMinHeight = marginTop
+        let frameMaxWidth = Int(mainView.frame.width) - marginRight
+        let frameMinWidth = marginLeft
         
         // x coordinate between MinX (left) and MaxX (right):
         let randomX = randomInRange(lo: frameMinWidth, hi: frameMaxWidth)

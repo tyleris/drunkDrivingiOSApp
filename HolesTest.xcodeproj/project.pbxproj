@@ -13,8 +13,7 @@
 		60E1859E1EA4FA71007E1667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60E1859D1EA4FA71007E1667 /* Assets.xcassets */; };
 		60E185A11EA4FA71007E1667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E1859F1EA4FA71007E1667 /* LaunchScreen.storyboard */; };
 		60E185AC1EA4FA72007E1667 /* HolesTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185AB1EA4FA72007E1667 /* HolesTestTests.swift */; };
-		60E185BB1EA5F108007E1667 /* animalUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185BA1EA5F108007E1667 /* animalUIView.swift */; };
-		60E185BD1EA5F128007E1667 /* holeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185BC1EA5F128007E1667 /* holeUIView.swift */; };
+		60E185C31EA69430007E1667 /* holeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185C21EA69430007E1667 /* holeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +37,7 @@
 		60E185A71EA4FA71007E1667 /* HolesTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HolesTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E185AB1EA4FA72007E1667 /* HolesTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolesTestTests.swift; sourceTree = "<group>"; };
 		60E185AD1EA4FA72007E1667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60E185BA1EA5F108007E1667 /* animalUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animalUIView.swift; sourceTree = "<group>"; };
-		60E185BC1EA5F128007E1667 /* holeUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = holeUIView.swift; path = ../holeUIView.swift; sourceTree = "<group>"; };
+		60E185C21EA69430007E1667 /* holeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = holeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +81,7 @@
 			children = (
 				60E185961EA4FA71007E1667 /* AppDelegate.swift */,
 				60E185981EA4FA71007E1667 /* ViewController.swift */,
-				60E185BC1EA5F128007E1667 /* holeUIView.swift */,
-				60E185BA1EA5F108007E1667 /* animalUIView.swift */,
+				60E185C21EA69430007E1667 /* holeView.swift */,
 				60E1859A1EA4FA71007E1667 /* Main.storyboard */,
 				60E1859D1EA4FA71007E1667 /* Assets.xcassets */,
 				60E1859F1EA4FA71007E1667 /* LaunchScreen.storyboard */,
@@ -204,10 +201,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60E185BD1EA5F128007E1667 /* holeUIView.swift in Sources */,
 				60E185991EA4FA71007E1667 /* ViewController.swift in Sources */,
 				60E185971EA4FA71007E1667 /* AppDelegate.swift in Sources */,
-				60E185BB1EA5F108007E1667 /* animalUIView.swift in Sources */,
+				60E185C31EA69430007E1667 /* holeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

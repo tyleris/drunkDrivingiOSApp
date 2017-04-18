@@ -21,6 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbW-qP-aJX">
+                                <rect key="frame" x="0.0" y="30" width="375" height="637"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hole" translatesAutoresizingMaskIntoConstraints="NO" id="2Gf-vR-rSK">
                                 <rect key="frame" x="31" y="65" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,6 +58,12 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dbW-qP-aJX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Ah6-WD-v51"/>
+                            <constraint firstAttribute="trailing" secondItem="dbW-qP-aJX" secondAttribute="trailing" id="Rpd-P2-n6H"/>
+                            <constraint firstItem="dbW-qP-aJX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cCd-KA-v35"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dbW-qP-aJX" secondAttribute="bottom" id="pFg-Ac-I3c"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="badgerImageView" destination="FjA-vr-Xuk" id="BIr-vZ-OWx"/>
@@ -63,6 +73,7 @@
                         <outlet property="hole1ImageView" destination="2Gf-vR-rSK" id="OA4-IA-XWF"/>
                         <outlet property="hole2ImageView" destination="ofe-K9-Qgh" id="LFm-Tn-IeH"/>
                         <outlet property="hole3ImageView" destination="qaz-bE-4Iw" id="bum-bU-bpo"/>
+                        <outlet property="mainView" destination="dbW-qP-aJX" id="z0l-CI-Vnl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,7 +84,7 @@
     <resources>
         <image name="badger" width="192" height="127"/>
         <image name="elephant" width="200" height="157"/>
-        <image name="groundhog" width="750" height="781"/>
+        <image name="groundhog" width="515" height="666"/>
         <image name="hole" width="130" height="130"/>
     </resources>
 </document>
