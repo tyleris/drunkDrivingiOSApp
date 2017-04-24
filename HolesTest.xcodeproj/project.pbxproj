@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600311301EAD9B5F00CC242C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003112F1EAD9B5F00CC242C /* Assets.xcassets */; };
+		608C8B901EAA7E0000867235 /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C8B8F1EAA7E0000867235 /* SavedData.swift */; };
+		608C8B921EAA806C00867235 /* WelcomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C8B911EAA806C00867235 /* WelcomeNavigationController.swift */; };
+		608C8B961EAA83BB00867235 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C8B951EAA83BB00867235 /* GlobalData.swift */; };
+		608C8B981EAA89AF00867235 /* GamemodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C8B971EAA89AF00867235 /* GamemodeViewController.swift */; };
+		60AE4BA81EA9599F008009D2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE4BA71EA9599F008009D2 /* ResultsViewController.swift */; };
 		60E185971EA4FA71007E1667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185961EA4FA71007E1667 /* AppDelegate.swift */; };
-		60E185991EA4FA71007E1667 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185981EA4FA71007E1667 /* ViewController.swift */; };
+		60E185991EA4FA71007E1667 /* WhackamoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185981EA4FA71007E1667 /* WhackamoleViewController.swift */; };
 		60E1859C1EA4FA71007E1667 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E1859A1EA4FA71007E1667 /* Main.storyboard */; };
-		60E1859E1EA4FA71007E1667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60E1859D1EA4FA71007E1667 /* Assets.xcassets */; };
 		60E185A11EA4FA71007E1667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E1859F1EA4FA71007E1667 /* LaunchScreen.storyboard */; };
 		60E185AC1EA4FA72007E1667 /* HolesTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185AB1EA4FA72007E1667 /* HolesTestTests.swift */; };
 		60E185C31EA69430007E1667 /* holeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185C21EA69430007E1667 /* holeView.swift */; };
@@ -27,11 +32,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6003112F1EAD9B5F00CC242C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		608C8B8F1EAA7E0000867235 /* SavedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
+		608C8B911EAA806C00867235 /* WelcomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeNavigationController.swift; sourceTree = "<group>"; };
+		608C8B951EAA83BB00867235 /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalData.swift; path = ../GlobalData.swift; sourceTree = "<group>"; };
+		608C8B971EAA89AF00867235 /* GamemodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamemodeViewController.swift; sourceTree = "<group>"; };
+		60AE4BA71EA9599F008009D2 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		60E185931EA4FA71007E1667 /* HolesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E185961EA4FA71007E1667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		60E185981EA4FA71007E1667 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		60E185981EA4FA71007E1667 /* WhackamoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackamoleViewController.swift; sourceTree = "<group>"; };
 		60E1859B1EA4FA71007E1667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		60E1859D1EA4FA71007E1667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60E185A01EA4FA71007E1667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60E185A21EA4FA71007E1667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60E185A71EA4FA71007E1667 /* HolesTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HolesTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,12 +90,17 @@
 			isa = PBXGroup;
 			children = (
 				60E185961EA4FA71007E1667 /* AppDelegate.swift */,
-				60E185981EA4FA71007E1667 /* ViewController.swift */,
+				608C8B911EAA806C00867235 /* WelcomeNavigationController.swift */,
+				608C8B971EAA89AF00867235 /* GamemodeViewController.swift */,
+				60E185981EA4FA71007E1667 /* WhackamoleViewController.swift */,
+				60AE4BA71EA9599F008009D2 /* ResultsViewController.swift */,
 				60E185C21EA69430007E1667 /* holeView.swift */,
+				608C8B8F1EAA7E0000867235 /* SavedData.swift */,
+				608C8B951EAA83BB00867235 /* GlobalData.swift */,
 				60E1859A1EA4FA71007E1667 /* Main.storyboard */,
-				60E1859D1EA4FA71007E1667 /* Assets.xcassets */,
 				60E1859F1EA4FA71007E1667 /* LaunchScreen.storyboard */,
 				60E185A21EA4FA71007E1667 /* Info.plist */,
+				6003112F1EAD9B5F00CC242C /* Assets.xcassets */,
 			);
 			path = HolesTest;
 			sourceTree = "<group>";
@@ -182,7 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60E185A11EA4FA71007E1667 /* LaunchScreen.storyboard in Resources */,
-				60E1859E1EA4FA71007E1667 /* Assets.xcassets in Resources */,
+				600311301EAD9B5F00CC242C /* Assets.xcassets in Resources */,
 				60E1859C1EA4FA71007E1667 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,9 +216,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60E185991EA4FA71007E1667 /* ViewController.swift in Sources */,
+				60E185991EA4FA71007E1667 /* WhackamoleViewController.swift in Sources */,
 				60E185971EA4FA71007E1667 /* AppDelegate.swift in Sources */,
+				608C8B981EAA89AF00867235 /* GamemodeViewController.swift in Sources */,
+				608C8B961EAA83BB00867235 /* GlobalData.swift in Sources */,
 				60E185C31EA69430007E1667 /* holeView.swift in Sources */,
+				60AE4BA81EA9599F008009D2 /* ResultsViewController.swift in Sources */,
+				608C8B921EAA806C00867235 /* WelcomeNavigationController.swift in Sources */,
+				608C8B901EAA7E0000867235 /* SavedData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +431,7 @@
 				60E185B21EA4FA72007E1667 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60E185B31EA4FA72007E1667 /* Build configuration list for PBXNativeTarget "HolesTestTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +440,7 @@
 				60E185B51EA4FA72007E1667 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

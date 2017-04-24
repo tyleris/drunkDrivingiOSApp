@@ -12,20 +12,26 @@ class holeView: UIView {
     
     //MARK: Properties
     
-    let holeImageView = UIImageView()
-    let animalImageView = UIImageView() //why do these differently? b/c one loads at startup?
+    var holeImageView = UIImageView()
+    var animalImageView = UIImageView() //why do these differently? b/c one loads at startup?
     
-    let sizeFrameDefault = CGSize(width: 200, height: 168)
+    let sizeFrameDefault = CGSize(width: 100, height: 100)
     let sizeHoleDefault = CGSize(width: 80, height: 80)
     var target: Bool = false
+    var disappearTime: Double = 0
+    var isVisible = false
+    var animalName: String = "None"
+    
+    var holeName = "hole"
     
     //MARK: initializers
     
     override init(frame: CGRect){
         super.init(frame: frame)
         
-        addBackground()
+        addBackground() //Make frame blue for diagnostic purposes
         addHole()
+    
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,7 +40,7 @@ class holeView: UIView {
     }
     
     convenience init(point: CGPoint){
-        let sizeFrameDefault = CGSize(width: 200, height: 128 + 0.5 * 80)
+        let sizeFrameDefault = CGSize(width: 100, height: 100)
         let boxFrame = CGRect(origin: point, size: sizeFrameDefault)
         
         self.init(frame: boxFrame)
@@ -43,32 +49,31 @@ class holeView: UIView {
     //MARK: Actions
     
     //Add animal
+    func addAnimal(animalName: String, disappearTime: Double){
+        
+        if isVisible == false {
+        
+            //Load animal image
+            let animalImage = UIImage(named: animalName)
+            animalImageView = UIImageView(image: animalImage)
+            
+            //Add animal to view
+            addSubview(animalImageView)
+            
+            //add animal name to object property
+            self.animalName = animalName
+            
+            isVisible = true
+            self.disappearTime = disappearTime
+        }
+    }
     
-    func addAnimal(animalName: String){
-        
-        //Load animal image
-        let animalImage = UIImage(named: animalName)
-        let animalImageView = UIImageView(image: animalImage)
-        
-        var animalFrame = animalImageView.frame
-        let AnimalHeight = animalFrame.height
-        let AnimalWidth = animalFrame.width
-        
-        //let boxHeight = self.frame.height
-        let boxWidth = self.frame.width
-        
-        //let holeX = holeImageView.frame.origin.x
-        let holeY = holeImageView.frame.origin.y
-        //Should I gaurd against non valid animal name?
-        
-        let xPos = 0.5 * (boxWidth - AnimalWidth)
-        let yPos = holeY + AnimalHeight
-        
-        //Set animal to appear right in middle of hole
-        animalFrame.origin =  CGPoint(x: xPos, y: yPos)
-        
-        //Add animal to view
-        addSubview(animalImageView)
+    //ToDo: Create func remove animal
+    
+    func removeAnimal(){
+        animalImageView.removeFromSuperview()
+        isVisible = false
+        animalName = "None"
     }
     
     func makeTarget(){
@@ -84,50 +89,69 @@ class holeView: UIView {
         return target
     }
     
-    //
-    
     //MARK: Private functions
     
     func addHole(){
         
         //Load hole image
         let holeImage = UIImage(named: "hole")
-        let holeImageView = UIImageView(image: holeImage)
+        holeImageView = UIImageView(image: holeImage)
         
-        let w = Double(sizeHoleDefault.width)
-        let h = Double(sizeHoleDefault.height)
-        
-        //Position right 1/2 diff between widths
-        let originX = 0.5 * (Double(sizeFrameDefault.width) - w)
-        //Position all the way down, except back up hight of hole image
-        let originY = Double(sizeFrameDefault.height) - h
-        let origin = CGPoint(x:originX, y:originY)
-        
-        //Create frame for hole
-        let holeFrame = CGRect(origin: origin, size: sizeHoleDefault)
-        holeImageView.frame = holeFrame
-        
+//        let w = Double(sizeHoleDefault.width)
+//        let h = Double(sizeHoleDefault.height)
+//        
+//        //Position right 1/2 diff between widths
+//        let originX = 0.5 * (Double(sizeFrameDefault.width) - w)
+//        //Position all the way down, except back up hight of hole image
+//        let originY = Double(sizeFrameDefault.height) - h
+//        let origin = CGPoint(x:originX, y:originY)
+// 
+//        //Create frame for hole
+//        let holeFrame = CGRect(origin: origin, size: sizeHoleDefault)
+//        holeImageView.frame = holeFrame
+// 
         //Add hole to view
         addSubview(holeImageView)
+        
     }
     
     
-    func addBackground(){
+    private func addBackground(){
         self.backgroundColor = UIColor.blue
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        //holeImageView.frame.size = CGSize(width: 40, height: 40)
+        // Get the superview's layout
+        let margins = self.layoutMarginsGuide
+        
+        //Align hole
+        
+        holeImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Pin the bottom edge of hole to the margin's bottom edge
+        holeImageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+        
+        // Pin the left edge of hole to the margin's left edge
+        holeImageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+
+        //Align animal
+        
+        if self.isVisible == true {
+            animalImageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            //Pin to animal bottom
+            animalImageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+            
+            //Pin to animal bottom
+            animalImageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        }
+        
+        
+        //resize hole
+        
+        
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
