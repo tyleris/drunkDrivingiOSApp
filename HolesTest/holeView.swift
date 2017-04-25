@@ -15,7 +15,7 @@ class holeView: UIView {
     var holeImageView = UIImageView()
     var animalImageView = UIImageView() //why do these differently? b/c one loads at startup?
     
-    let sizeFrameDefault = CGSize(width: 100, height: 100)
+    let sizeFrameDefault = CGSize(width: 50, height: 50)
     let sizeHoleDefault = CGSize(width: 80, height: 80)
     var target: Bool = false
     var disappearTime: Double = 0
@@ -40,7 +40,7 @@ class holeView: UIView {
     }
     
     convenience init(point: CGPoint){
-        let sizeFrameDefault = CGSize(width: 100, height: 100)
+        let sizeFrameDefault = CGSize(width: 50, height: 50)
         let boxFrame = CGRect(origin: point, size: sizeFrameDefault)
         
         self.init(frame: boxFrame)
@@ -151,6 +151,11 @@ class holeView: UIView {
         
         //resize hole
         
+//        var marginHole = holeImageView.layoutMarginsGuide
+//        var marginAnimal = animalImageView.layoutMarginsGuide
+        //var marginMax = UILayoutGuide. marginHole + marginAnimal
+        
+
         
     }
 

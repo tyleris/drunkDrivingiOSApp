@@ -25,7 +25,9 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //Holes
     var holes = [holeView]()
-    let holesMax = 3
+    let holesMax = 12
+    let holesMaxX = 3
+    let holesMaxY = 4
     
     //Counters
     var timer = Timer()
@@ -44,7 +46,7 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
     let minAppearTime = 1 as UInt32
     let waitTime = 2.0
     let countInterval = 0.01
-    var precision: Double = 100
+    var precision: Double = 10
     
     //Animals
     let otherAnimalAppearances = 10
@@ -78,16 +80,14 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
         precision = 1/countInterval
         
         //Create holes
-        for _ in 0..<holesMax {
-            createHole()
-        }
+        createHoles()
         
         //Randomly decide when animals should appear, and which holes
         setAnimalAppearTimes()
         
         //Create a timer
         var timer = Timer.scheduledTimer(timeInterval: countInterval, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-        
+        // //dont need this
         
         missTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleMissTap(_:)))
         successTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSuccessTap(_:)))
@@ -122,10 +122,12 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func makeAnimalsAppear(){
         
+        //For every animal that needs to appear
         for i in 0..<appearInfo.count {
             
             let data = appearInfo[i]
             
+            //If the counter reaches appear time, then make animal appear on hole
             if round(counter * precision) == round(data.time * precision) {
                 
                 holes[data.hole].addAnimal(animalName: data.animal, disappearTime: counter + waitTime)
@@ -133,12 +135,14 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
                 if data.target == true {
                     
                     //make target appear
+                    
                     holes[data.hole].addGestureRecognizer(successTapGesture!)
                     targetVisibleFlag = true
                     holes[data.hole].target = true
                     targetAnimalShowCount += 1
                     
                 } else {
+                    
                     //make wrong animal appear
                     holes[data.hole].addGestureRecognizer(failTapGesture!)
                 }
@@ -251,40 +255,22 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: Helper load methods
     
-    func createHole(){
-        let hole = holeView(point: CGPoint(x: 0, y: 0))
+    func createHoles(){
         
-        
-        var tryAgain = false
-        var tries = 0
-        
-        repeat {
-            tryAgain = false
-            var overlap = false
-            
-            let sP = spawnAtRandomPosition()
-            print(sP)
-            hole.frame.origin = sP
-            
-        
-            for i in 0..<holes.count {
-                print(holes[i].frame.origin)
-                if hole.frame.intersects(holes[i].frame) == true {
-                    overlap = true
-                }
-            }
-            
-            if overlap == false {
+        //Create grid of holes
+        for j in 0..<(holesMaxY) {
+            for i in 0..<(holesMaxX) {
+                
+                let hole = holeView(point: CGPoint(x: 0, y: 0))
                 holes.append(hole)
-                view.addSubview(hole)
-            } else {
-                tryAgain = true
+                
+                let idx = ConvertHoleCoordToScalar(x: i, y: j)
+                mainView.addSubview(holes[idx])
+                print("added hole number \(idx) at pt \(holes[idx].frame.origin)")
             }
-            
-            tries += 1
-            print("trying to place frame: \(tries) times")
-            if tries >= 50 {fatalError("Failed to set find a place for hole frame: Over 50 tries")}
-        } while tryAgain == true
+        }
+        
+        createGridLayout() //should it pass the holes? Nah
     }
     
     //Decide when each animal should appear
@@ -301,31 +287,45 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    //Add animal to hole and time that is unoccupied
+    //Add an animal to hole and time that is unoccupied
     private func addAnimal(target: Bool){
         var tries = 0
         var tryAgain = false
         var animal = ""
         
+        //Keep trying until find unoccupied hole
         repeat {
             tryAgain = false
             
-            if target == true {
-                animal = targetAnimalName
-            } else {
-                let idx = randomInRange(lo: 0, hi: animalNames.count - 2)
-                animal = animalNamesNoTarget[idx]
-            }
-    
+            //Pick a time and hole for animal appear (later test if there is conflict)
             let time = genRndTimeInGame()
             let hole = setHoleNum()
             let targetAnimal = target
             
-            if isHoleOccupied(time: time, holeNum: hole) == true {
-                tryAgain = true
+            //Pick animal name (based on whether or not target)
+            if target == true {
+                animal = targetAnimalName
+                
+                if isTimeOccupied(time: time) == true {
+                    tryAgain = true
+                }
+                
             } else {
+                
+                //if not target, pick random animal
+                let idx = randomInRange(lo: 0, hi: animalNames.count - 2)
+                animal = animalNamesNoTarget[idx]
+                
+                if isHoleAndTimeOccupied(time: time, holeNum: hole) == true {
+                    tryAgain = true
+                }
+            }
+    
+            //Only append new animal appearence if everything works out
+            if tryAgain == false {
                 appearInfo += [(time: time, animal: animal, target: targetAnimal, hole: hole)]
             }
+            
             tries += 1
             
             print("trying to place animal: \(tries) times")
@@ -336,7 +336,7 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //Return whether hole has animal appearing within the waitTime
-    private func isHoleOccupied(time: Double, holeNum: Int) -> Bool {
+    private func isHoleAndTimeOccupied(time: Double, holeNum: Int) -> Bool {
         var occupied = false
         
         for i in 0..<appearInfo.count {
@@ -347,9 +347,77 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
         return occupied
     }
     
+    private func isTimeOccupied(time: Double) -> Bool {
+        var occupied = false
+        
+        for i in 0..<appearInfo.count {
+            if ((time >= appearInfo[i].time) && (time <= appearInfo[i].time + waitTime)) {
+                occupied = true
+            }
+        }
+        return occupied
+        
+    }
+    
+    //MARK: Layout
+    
+    //Create grid of holes
+    private func createGridLayout(){
+        
+        //do all holes
+        for j in 0..<(holesMaxY) {
+            for i in 0..<(holesMaxX) {
+                
+                let idx = ConvertHoleCoordToScalar(x: i, y: j)
+                let multiplierX = (Double(i)+1) * 2 / (Double(holesMaxX) + 1)
+                let multiplierY = (Double(j)+1) * 2 / (Double(holesMaxY) + 1)
+                let adjX = CGFloat(holes[idx].frame.width) / -2
+                let adjY: CGFloat = 0 //CGFloat(holes[idx].frame.height) / -2
+                
+                holes[idx].translatesAutoresizingMaskIntoConstraints = false
+                
+                //arrange in x dimmension
+                
+                let constraintX = NSLayoutConstraint(item: holes[idx], attribute: .centerX, relatedBy: .equal, toItem: mainView, attribute: .centerX, multiplier: CGFloat(multiplierX), constant: adjX)
+                
+                // constraint.identifier = "ArrangeInX"
+                
+                mainView.addConstraint(constraintX)
+                print("added X constraint to \(holes[idx]) @ multiple \(multiplierX)")
+                
+                //Arrange in y dimmension
+                
+                let constraintY = NSLayoutConstraint(item: holes[idx], attribute: .centerY, relatedBy: .equal, toItem: mainView, attribute: .centerY, multiplier: CGFloat(multiplierY), constant: adjY)
+                
+                //constraint.identifier = "ArrangeInY"
+                
+                mainView.addConstraint(constraintY)
+                print("added Y constraint to hole #\(idx) @ multiple \(multiplierY)")
+                
+                //NEED TO CONSTRAIN HOLE SIZE!
+                //
+                
+            }
+        }
+    }
+
+    //MARK: math functions
+    
     private func roundToDigit(num: Double, digits: Int) -> Double{
         
         return (round(num * Double(digits) * 10) / (Double(digits) * 10))
+    }
+    
+    private func ConvertHoleScalarToCoord(num: Int)-> (Int, Int) {
+        
+        let x = Int(floor(Double(num) / Double(holesMaxY)))
+        let y = Int(remainder(Double(num), Double(holesMaxY)))
+        return (x, y)
+    }
+    
+    private func ConvertHoleCoordToScalar(x: Int, y: Int)-> Int {
+        
+        return x + y * holesMaxX
     }
     
     //MARK: Random generators
