@@ -47,6 +47,7 @@ class WhackamoleViewController: UIViewController, UIGestureRecognizerDelegate {
     let waitTime = 2.0
     let countInterval = 0.01
     var precision: Double = 10
+    //mindless change for testing purposes
     
     //Animals
     let otherAnimalAppearances = 10

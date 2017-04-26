@@ -21,6 +21,7 @@ class holeView: UIView {
     var disappearTime: Double = 0
     var isVisible = false
     var animalName: String = "None"
+    //random change to delete later
     
     var holeName = "hole"
     
