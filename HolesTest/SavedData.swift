@@ -39,8 +39,8 @@ class SavedData: NSObject, NSCoding {
         static let userName = "userName"
         
         //Save average baseline
-        static let avgFailsBaseline = "avgFailsBaseline"
-        static let avgReactionTimeBaseline = "avgReactionTimeBaseline"
+//        static let avgFailsBaseline = "avgFailsBaseline"
+//        static let avgReactionTimeBaseline = "avgReactionTimeBaseline"
     }
     
     //MARK: Archiving paths

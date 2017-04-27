@@ -13,6 +13,8 @@
 		608C8B961EAA83BB00867235 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C8B951EAA83BB00867235 /* GlobalData.swift */; };
 		608C8B981EAA89AF00867235 /* GamemodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C8B971EAA89AF00867235 /* GamemodeViewController.swift */; };
 		60AE4BA81EA9599F008009D2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE4BA71EA9599F008009D2 /* ResultsViewController.swift */; };
+		60B8FBC21EB111D8002390ED /* WmOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8FBC11EB111D8002390ED /* WmOnboardingViewController.swift */; };
+		60B8FBC41EB11DF9002390ED /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8FBC31EB11DF9002390ED /* AdminViewController.swift */; };
 		60E185971EA4FA71007E1667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185961EA4FA71007E1667 /* AppDelegate.swift */; };
 		60E185991EA4FA71007E1667 /* WhackamoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185981EA4FA71007E1667 /* WhackamoleViewController.swift */; };
 		60E1859C1EA4FA71007E1667 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E1859A1EA4FA71007E1667 /* Main.storyboard */; };
@@ -38,13 +40,15 @@
 		608C8B951EAA83BB00867235 /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalData.swift; path = ../GlobalData.swift; sourceTree = "<group>"; };
 		608C8B971EAA89AF00867235 /* GamemodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamemodeViewController.swift; sourceTree = "<group>"; };
 		60AE4BA71EA9599F008009D2 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		60E185931EA4FA71007E1667 /* HolesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60B8FBC11EB111D8002390ED /* WmOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WmOnboardingViewController.swift; sourceTree = "<group>"; };
+		60B8FBC31EB11DF9002390ED /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		60E185931EA4FA71007E1667 /* Dribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E185961EA4FA71007E1667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60E185981EA4FA71007E1667 /* WhackamoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackamoleViewController.swift; sourceTree = "<group>"; };
 		60E1859B1EA4FA71007E1667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60E185A01EA4FA71007E1667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60E185A21EA4FA71007E1667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60E185A71EA4FA71007E1667 /* HolesTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HolesTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		60E185A71EA4FA71007E1667 /* DribeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DribeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E185AB1EA4FA72007E1667 /* HolesTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolesTestTests.swift; sourceTree = "<group>"; };
 		60E185AD1EA4FA72007E1667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60E185C21EA69430007E1667 /* holeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = holeView.swift; sourceTree = "<group>"; };
@@ -71,8 +75,8 @@
 		60E1858A1EA4FA71007E1667 = {
 			isa = PBXGroup;
 			children = (
-				60E185951EA4FA71007E1667 /* HolesTest */,
-				60E185AA1EA4FA72007E1667 /* HolesTestTests */,
+				60E185951EA4FA71007E1667 /* Dribe */,
+				60E185AA1EA4FA72007E1667 /* DribeTests */,
 				60E185941EA4FA71007E1667 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,17 +84,19 @@
 		60E185941EA4FA71007E1667 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60E185931EA4FA71007E1667 /* HolesTest.app */,
-				60E185A71EA4FA71007E1667 /* HolesTestTests.xctest */,
+				60E185931EA4FA71007E1667 /* Dribe.app */,
+				60E185A71EA4FA71007E1667 /* DribeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		60E185951EA4FA71007E1667 /* HolesTest */ = {
+		60E185951EA4FA71007E1667 /* Dribe */ = {
 			isa = PBXGroup;
 			children = (
 				60E185961EA4FA71007E1667 /* AppDelegate.swift */,
+				60B8FBC31EB11DF9002390ED /* AdminViewController.swift */,
 				608C8B911EAA806C00867235 /* WelcomeNavigationController.swift */,
+				60B8FBC11EB111D8002390ED /* WmOnboardingViewController.swift */,
 				608C8B971EAA89AF00867235 /* GamemodeViewController.swift */,
 				60E185981EA4FA71007E1667 /* WhackamoleViewController.swift */,
 				60AE4BA71EA9599F008009D2 /* ResultsViewController.swift */,
@@ -102,24 +108,26 @@
 				60E185A21EA4FA71007E1667 /* Info.plist */,
 				6003112F1EAD9B5F00CC242C /* Assets.xcassets */,
 			);
+			name = Dribe;
 			path = HolesTest;
 			sourceTree = "<group>";
 		};
-		60E185AA1EA4FA72007E1667 /* HolesTestTests */ = {
+		60E185AA1EA4FA72007E1667 /* DribeTests */ = {
 			isa = PBXGroup;
 			children = (
 				60E185AB1EA4FA72007E1667 /* HolesTestTests.swift */,
 				60E185AD1EA4FA72007E1667 /* Info.plist */,
 			);
+			name = DribeTests;
 			path = HolesTestTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		60E185921EA4FA71007E1667 /* HolesTest */ = {
+		60E185921EA4FA71007E1667 /* Dribe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60E185B01EA4FA72007E1667 /* Build configuration list for PBXNativeTarget "HolesTest" */;
+			buildConfigurationList = 60E185B01EA4FA72007E1667 /* Build configuration list for PBXNativeTarget "Dribe" */;
 			buildPhases = (
 				60E1858F1EA4FA71007E1667 /* Sources */,
 				60E185901EA4FA71007E1667 /* Frameworks */,
@@ -129,14 +137,14 @@
 			);
 			dependencies = (
 			);
-			name = HolesTest;
+			name = Dribe;
 			productName = HolesTest;
-			productReference = 60E185931EA4FA71007E1667 /* HolesTest.app */;
+			productReference = 60E185931EA4FA71007E1667 /* Dribe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		60E185A61EA4FA71007E1667 /* HolesTestTests */ = {
+		60E185A61EA4FA71007E1667 /* DribeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60E185B31EA4FA72007E1667 /* Build configuration list for PBXNativeTarget "HolesTestTests" */;
+			buildConfigurationList = 60E185B31EA4FA72007E1667 /* Build configuration list for PBXNativeTarget "DribeTests" */;
 			buildPhases = (
 				60E185A31EA4FA71007E1667 /* Sources */,
 				60E185A41EA4FA71007E1667 /* Frameworks */,
@@ -147,9 +155,9 @@
 			dependencies = (
 				60E185A91EA4FA71007E1667 /* PBXTargetDependency */,
 			);
-			name = HolesTestTests;
+			name = DribeTests;
 			productName = HolesTestTests;
-			productReference = 60E185A71EA4FA71007E1667 /* HolesTestTests.xctest */;
+			productReference = 60E185A71EA4FA71007E1667 /* DribeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -172,7 +180,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 60E1858E1EA4FA71007E1667 /* Build configuration list for PBXProject "HolesTest" */;
+			buildConfigurationList = 60E1858E1EA4FA71007E1667 /* Build configuration list for PBXProject "Dribe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -185,8 +193,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60E185921EA4FA71007E1667 /* HolesTest */,
-				60E185A61EA4FA71007E1667 /* HolesTestTests */,
+				60E185921EA4FA71007E1667 /* Dribe */,
+				60E185A61EA4FA71007E1667 /* DribeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -222,7 +230,9 @@
 				608C8B961EAA83BB00867235 /* GlobalData.swift in Sources */,
 				60E185C31EA69430007E1667 /* holeView.swift in Sources */,
 				60AE4BA81EA9599F008009D2 /* ResultsViewController.swift in Sources */,
+				60B8FBC21EB111D8002390ED /* WmOnboardingViewController.swift in Sources */,
 				608C8B921EAA806C00867235 /* WelcomeNavigationController.swift in Sources */,
+				60B8FBC41EB11DF9002390ED /* AdminViewController.swift in Sources */,
 				608C8B901EAA7E0000867235 /* SavedData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,7 +250,7 @@
 /* Begin PBXTargetDependency section */
 		60E185A91EA4FA71007E1667 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 60E185921EA4FA71007E1667 /* HolesTest */;
+			target = 60E185921EA4FA71007E1667 /* Dribe */;
 			targetProxy = 60E185A81EA4FA71007E1667 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -394,7 +404,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.HolesTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HolesTest.app/HolesTest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dribe.app/Dribe";
 			};
 			name = Debug;
 		};
@@ -408,14 +418,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.HolesTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HolesTest.app/HolesTest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dribe.app/Dribe";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60E1858E1EA4FA71007E1667 /* Build configuration list for PBXProject "HolesTest" */ = {
+		60E1858E1EA4FA71007E1667 /* Build configuration list for PBXProject "Dribe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60E185AE1EA4FA72007E1667 /* Debug */,
@@ -424,7 +434,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60E185B01EA4FA72007E1667 /* Build configuration list for PBXNativeTarget "HolesTest" */ = {
+		60E185B01EA4FA72007E1667 /* Build configuration list for PBXNativeTarget "Dribe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60E185B11EA4FA72007E1667 /* Debug */,
@@ -433,7 +443,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60E185B31EA4FA72007E1667 /* Build configuration list for PBXNativeTarget "HolesTestTests" */ = {
+		60E185B31EA4FA72007E1667 /* Build configuration list for PBXNativeTarget "DribeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60E185B41EA4FA72007E1667 /* Debug */,

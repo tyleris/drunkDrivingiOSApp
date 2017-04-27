@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I64-9n-mnO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pR3-AL-FAy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Admin View Controller-->
         <scene sceneID="lg5-aY-p0k">
             <objects>
-                <viewController id="pR3-AL-FAy" sceneMemberID="viewController">
+                <viewController id="pR3-AL-FAy" customClass="AdminViewController" customModule="HolesTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OoM-WW-000"/>
                         <viewControllerLayoutGuide type="bottom" id="dbg-CF-naB"/>
@@ -42,6 +42,10 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Realistic Mode"/>
+                                <connections>
+                                    <action selector="realisticModeButton:" destination="pR3-AL-FAy" eventType="touchUpInside" id="4mt-ZI-t7E"/>
+                                    <segue destination="uxC-4R-PT9" kind="presentation" id="fcw-Dh-w8D"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mur-zf-4Mj">
                                 <rect key="frame" x="36" y="435" width="308" height="42"/>
@@ -50,6 +54,9 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Test Mode"/>
+                                <connections>
+                                    <action selector="testmodeButton:" destination="pR3-AL-FAy" eventType="touchUpInside" id="T7B-Nc-KAg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQG-bO-eKQ">
                                 <rect key="frame" x="58" y="549" width="99" height="21"/>
@@ -85,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icg-YL-YeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3076" y="-287"/>
+            <point key="canvasLocation" x="-4300" y="-287"/>
         </scene>
         <!--Welcome Navigation Controller-->
         <scene sceneID="zyq-1v-PRb">
@@ -98,15 +105,118 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQ7-n0-XTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2284" y="-287"/>
+            <point key="canvasLocation" x="-3431" y="-287"/>
         </scene>
-        <!--Page View Controller-->
+        <!--View Controller-->
+        <scene sceneID="zhE-13-ybF">
+            <objects>
+                <viewController storyboardIdentifier="WmOnboardingVC1" id="uxC-4R-PT9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PNa-ff-flG"/>
+                        <viewControllerLayoutGuide type="bottom" id="1JO-gF-ULO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gzj-rU-HG2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WmOnboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="K7X-Hz-zBE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2y-1R-wWB">
+                                <rect key="frame" x="285" y="597" width="59" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPs-pk-e8z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="NdI-3I-R5W" kind="presentation" id="c6V-YS-qud"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WGO-sQ-fc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2215.1999999999998" y="-1024.1379310344828"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cgn-tG-frY">
+            <objects>
+                <viewController storyboardIdentifier="WmOnboardingVC2" id="NdI-3I-R5W" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E3H-Sl-qRd"/>
+                        <viewControllerLayoutGuide type="bottom" id="rag-2r-Jhv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wP3-9l-14f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WmOnboarding2" translatesAutoresizingMaskIntoConstraints="NO" id="d9X-9U-aes">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuY-p0-AzV">
+                                <rect key="frame" x="284" y="598" width="63" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIc-E5-vSB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="d3a-Xv-er9" kind="presentation" id="Yvd-3s-wyG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QrV-38-dFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1498.4000000000001" y="-1016.0419790104949"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gdX-bU-6xr">
+            <objects>
+                <viewController storyboardIdentifier="WmOnboardingVC3" id="d3a-Xv-er9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Hz-Qj-TRx"/>
+                        <viewControllerLayoutGuide type="bottom" id="HBM-jC-0pT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u0e-z1-VPB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WmOnboarding3" translatesAutoresizingMaskIntoConstraints="NO" id="nRz-if-T0Y">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grs-IM-JFm">
+                                <rect key="frame" x="273" y="600" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="iwF-mq-dJd" kind="presentation" id="bee-Cl-Tsg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Dn-Xv-WIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-743.20000000000005" y="-1011.544227886057"/>
+        </scene>
+        <!--Wm Onboarding View Controller-->
         <scene sceneID="0aT-VY-3Bc">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="wpH-oX-kAI" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="wpH-oX-kAI" customClass="WmOnboardingViewController" customModule="HolesTest" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGJ-MI-KhH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1743" y="-1308"/>
+            <point key="canvasLocation" x="-1487" y="-1719"/>
         </scene>
         <!--Gamemode View Controller-->
         <scene sceneID="8rW-Ae-y1u">
@@ -414,10 +524,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="WmOnboarding1" width="187" height="333"/>
+        <image name="WmOnboarding2" width="187" height="333"/>
+        <image name="WmOnboarding3" width="187" height="333"/>
         <image name="giraffe" width="38" height="74"/>
         <image name="hole" width="38" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X8w-vX-kMH"/>
+        <segue reference="bee-Cl-Tsg"/>
     </inferredMetricsTieBreakers>
 </document>

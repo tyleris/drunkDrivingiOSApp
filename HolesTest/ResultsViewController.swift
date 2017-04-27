@@ -52,6 +52,8 @@ class ResultsViewController: UIViewController, UINavigationControllerDelegate {
         
         
         print("mode: \(GlobalData.Settings.gamemode)")
+        
+        //Save data
     }
     
    }

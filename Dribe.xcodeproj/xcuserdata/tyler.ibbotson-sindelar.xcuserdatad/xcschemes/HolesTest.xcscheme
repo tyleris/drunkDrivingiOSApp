@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "60E185921EA4FA71007E1667"
-               BuildableName = "HolesTest.app"
-               BlueprintName = "HolesTest"
-               ReferencedContainer = "container:HolesTest.xcodeproj">
+               BuildableName = "Dribe.app"
+               BlueprintName = "Dribe"
+               ReferencedContainer = "container:Dribe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "60E185A61EA4FA71007E1667"
-               BuildableName = "HolesTestTests.xctest"
-               BlueprintName = "HolesTestTests"
-               ReferencedContainer = "container:HolesTest.xcodeproj">
+               BuildableName = "DribeTests.xctest"
+               BlueprintName = "DribeTests"
+               ReferencedContainer = "container:Dribe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60E185921EA4FA71007E1667"
-            BuildableName = "HolesTest.app"
-            BlueprintName = "HolesTest"
-            ReferencedContainer = "container:HolesTest.xcodeproj">
+            BuildableName = "Dribe.app"
+            BlueprintName = "Dribe"
+            ReferencedContainer = "container:Dribe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60E185921EA4FA71007E1667"
-            BuildableName = "HolesTest.app"
-            BlueprintName = "HolesTest"
-            ReferencedContainer = "container:HolesTest.xcodeproj">
+            BuildableName = "Dribe.app"
+            BlueprintName = "Dribe"
+            ReferencedContainer = "container:Dribe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60E185921EA4FA71007E1667"
-            BuildableName = "HolesTest.app"
-            BlueprintName = "HolesTest"
-            ReferencedContainer = "container:HolesTest.xcodeproj">
+            BuildableName = "Dribe.app"
+            BlueprintName = "Dribe"
+            ReferencedContainer = "container:Dribe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
