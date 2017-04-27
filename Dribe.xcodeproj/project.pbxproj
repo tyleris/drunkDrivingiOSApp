@@ -19,7 +19,7 @@
 		60E185991EA4FA71007E1667 /* WhackamoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185981EA4FA71007E1667 /* WhackamoleViewController.swift */; };
 		60E1859C1EA4FA71007E1667 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E1859A1EA4FA71007E1667 /* Main.storyboard */; };
 		60E185A11EA4FA71007E1667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E1859F1EA4FA71007E1667 /* LaunchScreen.storyboard */; };
-		60E185AC1EA4FA72007E1667 /* HolesTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185AB1EA4FA72007E1667 /* HolesTestTests.swift */; };
+		60E185AC1EA4FA72007E1667 /* DribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185AB1EA4FA72007E1667 /* DribeTests.swift */; };
 		60E185C31EA69430007E1667 /* holeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E185C21EA69430007E1667 /* holeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 			containerPortal = 60E1858B1EA4FA71007E1667 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 60E185921EA4FA71007E1667;
-			remoteInfo = HolesTest;
+			remoteInfo = Dribe;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,7 +49,7 @@
 		60E185A01EA4FA71007E1667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60E185A21EA4FA71007E1667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60E185A71EA4FA71007E1667 /* DribeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DribeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		60E185AB1EA4FA72007E1667 /* HolesTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolesTestTests.swift; sourceTree = "<group>"; };
+		60E185AB1EA4FA72007E1667 /* DribeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DribeTests.swift; sourceTree = "<group>"; };
 		60E185AD1EA4FA72007E1667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60E185C21EA69430007E1667 /* holeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = holeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,17 +109,17 @@
 				6003112F1EAD9B5F00CC242C /* Assets.xcassets */,
 			);
 			name = Dribe;
-			path = HolesTest;
+			path = Dribe;
 			sourceTree = "<group>";
 		};
 		60E185AA1EA4FA72007E1667 /* DribeTests */ = {
 			isa = PBXGroup;
 			children = (
-				60E185AB1EA4FA72007E1667 /* HolesTestTests.swift */,
+				60E185AB1EA4FA72007E1667 /* DribeTests.swift */,
 				60E185AD1EA4FA72007E1667 /* Info.plist */,
 			);
 			name = DribeTests;
-			path = HolesTestTests;
+			path = DribeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +138,7 @@
 			dependencies = (
 			);
 			name = Dribe;
-			productName = HolesTest;
+			productName = Dribe;
 			productReference = 60E185931EA4FA71007E1667 /* Dribe.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -156,7 +156,7 @@
 				60E185A91EA4FA71007E1667 /* PBXTargetDependency */,
 			);
 			name = DribeTests;
-			productName = HolesTestTests;
+			productName = DribeTests;
 			productReference = 60E185A71EA4FA71007E1667 /* DribeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -171,10 +171,12 @@
 				TargetAttributes = {
 					60E185921EA4FA71007E1667 = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = G2K99C3QTC;
 						ProvisioningStyle = Automatic;
 					};
 					60E185A61EA4FA71007E1667 = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = G2K99C3QTC;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 60E185921EA4FA71007E1667;
 					};
@@ -241,7 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60E185AC1EA4FA72007E1667 /* HolesTestTests.swift in Sources */,
+				60E185AC1EA4FA72007E1667 /* DribeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,10 +376,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = HolesTest/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G2K99C3QTC;
+				INFOPLIST_FILE = Dribe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.HolesTest;
+				PRODUCT_BUNDLE_IDENTIFIER = "G2K99C3QTC.dribe*";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -386,10 +393,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = HolesTest/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G2K99C3QTC;
+				INFOPLIST_FILE = Dribe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.HolesTest;
+				PRODUCT_BUNDLE_IDENTIFIER = "G2K99C3QTC.dribe*";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -399,10 +411,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = HolesTestTests/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G2K99C3QTC;
+				INFOPLIST_FILE = Dribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.HolesTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "G2K99C3QTC.dribe*";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dribe.app/Dribe";
 			};
@@ -413,10 +429,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = HolesTestTests/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G2K99C3QTC;
+				INFOPLIST_FILE = Dribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.HolesTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "G2K99C3QTC.dribe*";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dribe.app/Dribe";
 			};
