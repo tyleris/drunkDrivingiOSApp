@@ -28,6 +28,8 @@ class GlobalData {
         //For user flag whether they have played a given game or not
         static let playedBeforeWhackamole = false
         
+        //Get game time to decide if user can enter a baseline
+        
         static var username: String = "NotSet"
         static var gameName: String = "NotSet"
         static var gender = "male"
@@ -37,6 +39,27 @@ class GlobalData {
         static var bac = 0.0
         
     }
+    
+    func getDateTimeStampCurrent() -> String {
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let month = calendar.component(.month, from: date as Date)
+        let day = calendar.component(.day, from: date as Date)
+        let hour = calendar.component(.hour, from: date as Date)
+        let minute = calendar.component(.minute, from: date as Date)
+        return String(" \(month)/\(day) \(hour):\(minute)")
+    }
+
+    func getDateTimeStampCurrentComponents() -> Dictionary<String, Int> {
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let month = calendar.component(.month, from: date as Date)
+        let day = calendar.component(.day, from: date as Date)
+        let hour = calendar.component(.hour, from: date as Date)
+        let minute = calendar.component(.minute, from: date as Date)
+        return ["month": month, "day": day, "hour": hour, "minute": minute]
+    }
+    
     
     struct DataBaseline {
         static let username: String = "NotSet"
