@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		602B34271EB1ADAB00EE0CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602B34261EB1ADAB00EE0CD6 /* Assets.xcassets */; };
+		602B342B1EB2992D00EE0CD6 /* EnterTestUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B342A1EB2992D00EE0CD6 /* EnterTestUserInfoViewController.swift */; };
 		608C8B901EAA7E0000867235 /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C8B8F1EAA7E0000867235 /* SavedData.swift */; };
 		608C8B921EAA806C00867235 /* WelcomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C8B911EAA806C00867235 /* WelcomeNavigationController.swift */; };
 		608C8B961EAA83BB00867235 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C8B951EAA83BB00867235 /* GlobalData.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		602B34261EB1ADAB00EE0CD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		602B342A1EB2992D00EE0CD6 /* EnterTestUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnterTestUserInfoViewController.swift; path = ../EnterTestUserInfoViewController.swift; sourceTree = "<group>"; };
 		608C8B8F1EAA7E0000867235 /* SavedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
 		608C8B911EAA806C00867235 /* WelcomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeNavigationController.swift; sourceTree = "<group>"; };
 		608C8B951EAA83BB00867235 /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalData.swift; path = ../GlobalData.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				60E185961EA4FA71007E1667 /* AppDelegate.swift */,
 				60B8FBC31EB11DF9002390ED /* AdminViewController.swift */,
+				602B342A1EB2992D00EE0CD6 /* EnterTestUserInfoViewController.swift */,
 				608C8B911EAA806C00867235 /* WelcomeNavigationController.swift */,
 				60B8FBC11EB111D8002390ED /* WmOnboardingViewController.swift */,
 				608C8B971EAA89AF00867235 /* GamemodeViewController.swift */,
@@ -228,6 +231,7 @@
 				60E185971EA4FA71007E1667 /* AppDelegate.swift in Sources */,
 				608C8B981EAA89AF00867235 /* GamemodeViewController.swift in Sources */,
 				608C8B961EAA83BB00867235 /* GlobalData.swift in Sources */,
+				602B342B1EB2992D00EE0CD6 /* EnterTestUserInfoViewController.swift in Sources */,
 				60E185C31EA69430007E1667 /* holeView.swift in Sources */,
 				60AE4BA81EA9599F008009D2 /* ResultsViewController.swift in Sources */,
 				60B8FBC21EB111D8002390ED /* WmOnboardingViewController.swift in Sources */,
