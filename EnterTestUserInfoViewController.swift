@@ -11,15 +11,16 @@ import UIKit
 class EnterTestUserInfoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var userDataPicker: UIPickerView!
-   
     @IBOutlet weak var drinksPicker: UIPickerView!
-    
     @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var reactionTimeLabel: UILabel!
+    @IBOutlet weak var failCountLabel: UILabel!
     
     var pickerData = [["Female", "Male"], ["Under 25","25-29","30-34","35-39","40-50","50-60","60-70","70-80","80-90"], ["Exhausted", "A bit tired", "Well rested"]]
 
     var drinksPickerData = [[0.00,0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.10,0.11,0.12],[0,1,2,3,4,5,6,7,8,9,10]]
     
+    //Defaults based on picker defaults
     var gender: String = "Female"
     var age = "Under 25"
     var tiredness = "Exhausted"
@@ -36,6 +37,9 @@ class EnterTestUserInfoViewController: UIViewController, UIPickerViewDataSource,
         self.drinksPicker.delegate = self
         
         self.userNameTextField.delegate = self
+        
+        failCountLabel.text = String(GlobalData.DataRaw.failCount)
+        reactionTimeLabel.text = String(GlobalData.DataRaw.reactionTime)
     }
     
     
@@ -116,6 +120,7 @@ class EnterTestUserInfoViewController: UIViewController, UIPickerViewDataSource,
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
        
+        //Probably don't need to set these global data settings
         let username = userNameTextField.text ?? ""
         GlobalData.Settings.username = username
         //toDo: time stamp
@@ -124,13 +129,59 @@ class EnterTestUserInfoViewController: UIViewController, UIPickerViewDataSource,
         GlobalData.Settings.drinks = drinks
         GlobalData.Settings.bac = bac
         
+        //Reaction time and fails already set when game ended
+        let fails = GlobalData.DataRaw.failCount
+        let rt = GlobalData.DataRaw.reactionTime
+        
         print("user data saved:")
-        print("username: \(GlobalData.Settings.username)")
-        print("gender: \(GlobalData.Settings.gender)")
-        print("age: \(GlobalData.Settings.age)")
+        print("username: \(GlobalData.Settings.username ?? "nil")")
+        print("gender: \(GlobalData.Settings.gender ?? "nil")")
+        print("age: \(GlobalData.Settings.age ?? "nil")")
         print("drinks: \(GlobalData.Settings.drinks)")
         print("bac: \(GlobalData.Settings.bac)")
+        
+        //Save data
+        guard let name: String = GlobalData.Settings.gameName else {fatalError("gamename not set")}
+        guard let type: String = GlobalData.Settings.gametype else {fatalError("gametype not set")}
+        
+        //Gamemode is an optional and does not need to be set
+        let mode: String = GlobalData.Settings.gamemode ?? "na"
+        
+        //Can we call method from within SavedData?
+        //SavedData.saveUserNameTrial(userName: username, gameName: name, gamemode: mode, gametype: type, age: age, gender: gender, tiredness: tiredness, reactionTime: rt, failsCount: fails)
+        //        print("data saved")
+        
+        //This might be a syntax issue. (())?
+        //ToDo: add dateTimeStamp
+        //ToDo: Make this a var in GlobalData with lots of data in it. Pass whole thing back and forth (for now)
+        
+        var userData = [String : Any]()
+        
+        //ToDo: All Strings should really be propety keys!
+        userData = ["userName": username, "gameName": name, "gamemode": mode ?? "na", "gametype": type, "age": age, "gender": gender, "tiredness": tiredness, "reactionTime": rt, "failsCount": fails]
+        
+        GlobalData.DataRaw.userData.append(userData)
+        
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(GlobalData.DataRaw.userData, toFile: SavedData.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            print("game data successfully saved.")
+        } else {
+            print("failed to save game data...")
+        }
+        
+        performSegue(withIdentifier:"segueToWelcomePage", sender: self)
+
     }
+    
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        
+        GlobalData.DataRaw.reactionTime = 0
+        GlobalData.DataRaw.failCount = 0
+        
+        performSegue(withIdentifier: "segueToWelcomePage", sender: self)
+    }
+    
     
     // I prob don't need this function. just read settings later
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

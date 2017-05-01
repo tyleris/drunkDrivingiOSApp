@@ -12,14 +12,14 @@ class GlobalData {
     
     struct Settings {
         
-        static var gamemode: String = "NotSet"
+        static var gamemode: String?
         
         //Options: "testDrunkness", "setBaseline"
         static let gamemodeTestDrunkness = "testDrunkness"
         static let gamemodeSetBaseline = "setBaseline"
         
         //Gametype decides whether you are recording data or you are
-        static var gametype: String = "NotSet"
+        static var gametype: String?
         
         //Options: 'realistic", "dataCollection"
         static let gametypeRealistic = "realistic"
@@ -28,19 +28,21 @@ class GlobalData {
         //For user flag whether they have played a given game or not
         static let playedBeforeWhackamole = false
         
-        //Get game time to decide if user can enter a baseline
+        static var gameName: String?
+        static let gameNameWhackamole = "Whackamole"
         
-        static var username: String = "NotSet"
-        static var gameName: String = "NotSet"
-        static var gender = "male"
-        static var age = "25-29"
+        static var firstLoad = true
+        
+        //Do I need this??
+        static var username: String?
+        static var gender: String?
+        static var age: String?
         static var tiredness = "N/A"
         static var drinks = 0
         static var bac = 0.0
-        
     }
     
-    func getDateTimeStampCurrent() -> String {
+    static func getDateTimeStampCurrent() -> String {
         let date = NSDate()
         let calendar = NSCalendar.current
         let month = calendar.component(.month, from: date as Date)
@@ -50,7 +52,7 @@ class GlobalData {
         return String(" \(month)/\(day) \(hour):\(minute)")
     }
 
-    func getDateTimeStampCurrentComponents() -> Dictionary<String, Int> {
+    static func getDateTimeStampCurrentComponents() -> Dictionary<String, Int> {
         let date = NSDate()
         let calendar = NSCalendar.current
         let month = calendar.component(.month, from: date as Date)
@@ -70,6 +72,7 @@ class GlobalData {
     
     struct DataRaw {
      
+        //ToDo: Change these all to optionals!
         static var username: String = "NotSet"
         static var gameName: String = "NotSet"
         static var gender = "male"
@@ -77,10 +80,13 @@ class GlobalData {
         static var age = "25-29"
         static var drinks = 0
         static var bac = 0.0
+        static var reactionTime = 0.0
+        static var failCount = 0
         
-        //static let userData = Array<(userName: String, gameName: String, drunkTest: Bool, reactionTime: Double, failsCount: Int)>
-        //Todo: add gender, age, drinks, bac
-        //Todo: add game version
+        static let userData = Array<(["userName": String, "gameName": String, "gamemode": String?, "gametype": String, "age": String?, "gender": String?, "tiredness": String?, "reactionTime": Double, "failsCount": Int])>
+        
+        //ToDo: Add dateTimeStamp
+        
     }
     
     //Can I create a method to guard against prohibilited values?
