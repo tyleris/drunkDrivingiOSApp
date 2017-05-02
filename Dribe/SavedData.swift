@@ -108,12 +108,17 @@ class SavedData: NSObject, NSCoding {
     
     static func loadUserNameTrials(){
         
-        guard let data = NSKeyedUnarchiver.unarchiveObject(withFile: SavedData.ArchiveURL.path) as? [[String : Any?]] else {fatalError("saved data in wrong format. Can't load")}
+        guard let data = NSKeyedUnarchiver.unarchiveObject(withFile: SavedData.ArchiveURL.path) as? [[String : Any?]]? else {fatalError("saved data in wrong format. Can't load")}
         
-        GlobalData.DataRaw.userData = data
+        if data != nil {
+            GlobalData.DataRaw.userData = data!
+            print("Loaded data...")
+            print(GlobalData.DataRaw.userData)
+        } else {
+            print("no data to load")
+        }
         
-        print("Loaded data...")
-        print(GlobalData.DataRaw.userData)
+        
     }
     
     
@@ -202,17 +207,31 @@ class SavedData: NSObject, NSCoding {
         
         guard let rt = defaults.object(forKey: GlobalData.WhackamoleBaseline.Key.rt) as? Double? else {fatalError("UserDefault reaction time should be Double")}
         
-        GlobalData.WhackamoleBaseline.rt = rt
+        if rt != nil {
+            GlobalData.WhackamoleBaseline.rt = rt
+            print("reaction time baseline data loaded")
+        } else {
+            print("no reaction time baseline data to load")
+        }
         
         let pb = defaults.object(forKey: GlobalData.WhackamoleBaseline.Key.playedBefore) as? Bool ?? false
         
-        GlobalData.WhackamoleBaseline.playedBefore = pb
+        if pb == true {
+            GlobalData.WhackamoleBaseline.playedBefore = true
+            print("played before == true")
+        } else {
+            print("played before == false")
+        }
         
         //**Must change to Double later
         guard let fc = defaults.object(forKey: GlobalData.WhackamoleBaseline.Key.failsCount) as? Double? else {fatalError("UserDefault fail count should be Double")}
-        
-        GlobalData.WhackamoleBaseline.failsCount = fc
-        
+
+        if fc != nil {
+            GlobalData.WhackamoleBaseline.failsCount = fc
+            print("fail count baseline data loaded")
+        } else {
+            print("no fail count baseline data to load")
+        }
         
     }
     
