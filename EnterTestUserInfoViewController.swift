@@ -130,9 +130,14 @@ class EnterTestUserInfoViewController: UIViewController, UIPickerViewDataSource,
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        //Only enable save button, if username entered
         if userNameTextField.text != nil {
             saveButtonOutlet.isEnabled = true
         }
+        
+        //resign keyboard
+        textField.resignFirstResponder()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -144,7 +149,7 @@ class EnterTestUserInfoViewController: UIViewController, UIPickerViewDataSource,
        
         guard let username = userNameTextField.text else {fatalError("it wasn't supposed to be possible to save without username entered")}
         
-        print("savings data... username: \(username) gender: \(gender ?? "NA") age: \(age ?? "NA") tiredness: \(tiredness ?? "NA") drinks: \(drinks) bac: \(bac)")
+        print("savings data... username: \(username) gender: \(gender) age: \(age) tiredness: \(tiredness) drinks: \(drinks) bac: \(bac)")
         
         guard let gameName: String = GlobalData.Settings.gameName else {fatalError("gamename not set")}
         

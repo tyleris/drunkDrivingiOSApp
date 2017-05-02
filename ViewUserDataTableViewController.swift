@@ -41,28 +41,27 @@ class ViewUserDataTableViewController: UITableViewController {
 
         let i = indexPath.row
         let data = GlobalData.DataRaw.userData[i]
-        //let k = GlobalData.Key // cant refer to static var from instance
         
         //Create labels for cell
-        cell.usernameLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.userName], errStr: "NA")
+        cell.usernameLabel.text = unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.userName], errStr: "NA")
         
-        cell.gamemodeLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.gamemode], errStr: "NA")
+        cell.gamemodeLabel.text = unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.gamemode], errStr: "NA")
         
-        cell.gameNameLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.gameName], errStr: "NA")
+        cell.gameNameLabel.text = unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.gameName], errStr: "NA")
         
-        cell.genderLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.gender], errStr: "NA")
+        cell.genderLabel.text = unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.gender], errStr: "NA")
         
-        cell.ageLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.age], errStr: "NA")
+        cell.ageLabel.text = unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.age], errStr: "NA")
         
-        cell.tirednessLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.tiredness], errStr: "NA")
+        cell.tirednessLabel.text = unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.tiredness], errStr: "NA")
         
-        cell.drinksLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.drinks], errStr: "NA")
+        cell.drinksLabel.text = unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.drinks], errStr: "NA")
         
-        cell.bacLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.bac], errStr: "NA")
+        cell.bacLabel.text = unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.bac], errStr: "NA")
     
-        cell.failsLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.failsCount], errStr: "NA")
+        cell.failsLabel.text = unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.failsCount], errStr: "NA")
         
-        let rt = round(Double(unwrapDicToLabel(field: data[GlobalData.Key.reactionTime], errStr: "0"))! * 10) / 10
+        let rt = round(Double(unwrapDicToLabel(field: data[GlobalData.DataRaw.Key.reactionTime], errStr: "0"))! * 10) / 10
         cell.reactionTimeLabel.text = String(rt)
         
         return cell

@@ -1,18 +1,15 @@
 //
-//  EnterUsernameViewController.swift
+//  YouPassedViewController.swift
 //  Dribe
 //
-//  Created by Tyler Ibbotson-Sindelar on 4/29/17.
+//  Created by Tyler Ibbotson-Sindelar on 5/2/17.
 //
 //
 
 import UIKit
 
-class EnterUsernameViewController: UIViewController {
+class YouPassedViewController: UIViewController {
 
-    
-    @IBOutlet weak var usernameLabel: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,23 +21,7 @@ class EnterUsernameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: buttons
-    
-    @IBAction func saveButton(_ sender: UIButton) {
-        
-        //ToDo: require user to enter text
-        GlobalData.Settings.primaryUsername = usernameLabel.text!
-        
-        performSegue(withIdentifier: "segueToWMOnboarding", sender: self)
-    }
 
-    //MARK: textbox
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        //resign keyboard
-        textField.resignFirstResponder()
-    }
-    
     /*
     // MARK: - Navigation
 

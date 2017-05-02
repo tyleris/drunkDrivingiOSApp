@@ -11,17 +11,6 @@ import Foundation
 class GlobalData {
     
     struct Key {
-        
-        static var userName = "userName"
-        static var gameName = "gameName"
-        static var gamemode = "gamemode"
-        static var age = "age"
-        static var gender = "gender"
-        static var tiredness = "tiredness"
-        static var bac = "bac"
-        static var drinks = "drinks"
-        static var reactionTime = "reactionTime"
-        static var failsCount = "failsCount"
         //ToDo: Add dateTime
         
     }
@@ -57,7 +46,7 @@ class GlobalData {
     struct WhackamoleBaseline {
         static var playedBefore = false
         static var rt: Double?
-        static var failsCount: Int?
+        static var failsCount: Double?
         static let rtMargin = 1.1
         static let failsMargin = 1
         
@@ -82,11 +71,21 @@ class GlobalData {
         static var failCount = 0
         
         static var userData = [[String:Any?]]()
-        
-        //Array<(["userName": String, "gameName": String, "gamemode": String?, "age": String?, "gender": String?, "tiredness": String?, "reactionTime": Double, "failsCount": Int])>
-        
         //ToDo: Add dateTimeStamp
         
+        struct Key {
+            static let userName = "userName"
+            static let gameName = "gameName"
+            static let gamemode = "gamemode"
+            static let age = "age"
+            static let gender = "gender"
+            static let tiredness = "tiredness"
+            static let bac = "bac"
+            static let drinks = "drinks"
+            static let reactionTime = "reactionTime"
+            static let failsCount = "failsCount"
+            static let validText = ["userName", "gameName", "gamemode", "age", "gender", "tiredness", "bac", "drinks", "reactionTime", "failsCount"]
+        }
     }
     
     static func getDateTimeStampCurrent() -> String {
