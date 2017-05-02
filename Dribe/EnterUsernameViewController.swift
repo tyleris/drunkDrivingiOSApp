@@ -27,7 +27,7 @@ class EnterUsernameViewController: UIViewController {
     @IBAction func saveButton(_ sender: UIButton) {
         
         //ToDo: require user to enter text
-        GlobalData.Settings.username = usernameLabel.text!
+        GlobalData.Settings.primaryUsername = usernameLabel.text!
         
         performSegue(withIdentifier: "segueToWMOnboarding", sender: self)
     }

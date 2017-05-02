@@ -15,6 +15,7 @@ class EnterTestUserInfoViewController: UIViewController, UIPickerViewDataSource,
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var reactionTimeLabel: UILabel!
     @IBOutlet weak var failCountLabel: UILabel!
+    @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
     
     var pickerData = [["Female", "Male"], ["Under 25","25-29","30-34","35-39","40-50","50-60","60-70","70-80","80-90"], ["Exhausted", "A bit tired", "Well rested"]]
 
@@ -102,6 +103,24 @@ class EnterTestUserInfoViewController: UIViewController, UIPickerViewDataSource,
         return pickerLabel!
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        if pickerView.tag == 0 {
+            
+            if component == 0 {gender = pickerData[0][row]}
+            if component == 1 {age = pickerData[1][row]}
+            if component == 2 {tiredness = pickerData[2][row]}
+            
+        } else if pickerView.tag == 1 {
+            
+            if component == 0 {bac = drinksPickerData[0][row]}
+            if component == 1 {drinks = Int(drinksPickerData[0][row])}
+            //Safe to force unwrap because #s manually entered above
+            
+        } else {fatalError("picker tags messed up")}
+    }
+
+    
     //MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -111,98 +130,43 @@ class EnterTestUserInfoViewController: UIViewController, UIPickerViewDataSource,
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if userNameTextField.text != nil {
+            saveButtonOutlet.isEnabled = true
+        }
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
     }
  
-    
     //MARK: Save data
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
        
-        //Probably don't need to set these global data settings
-        let username = userNameTextField.text ?? ""
-        GlobalData.Settings.username = username
-        //toDo: time stamp
-        GlobalData.Settings.gender = gender
-        GlobalData.Settings.age = age
-        GlobalData.Settings.drinks = drinks
-        GlobalData.Settings.bac = bac
+        guard let username = userNameTextField.text else {fatalError("it wasn't supposed to be possible to save without username entered")}
+        
+        print("savings data... username: \(username) gender: \(gender ?? "NA") age: \(age ?? "NA") tiredness: \(tiredness ?? "NA") drinks: \(drinks) bac: \(bac)")
+        
+        guard let gameName: String = GlobalData.Settings.gameName else {fatalError("gamename not set")}
         
         //Reaction time and fails already set when game ended
+        //ToDo: Change to gaurd let, make fails and rt into optionals
         let fails = GlobalData.DataRaw.failCount
         let rt = GlobalData.DataRaw.reactionTime
-        
-        print("user data saved:")
-        print("username: \(GlobalData.Settings.username ?? "nil")")
-        print("gender: \(GlobalData.Settings.gender ?? "nil")")
-        print("age: \(GlobalData.Settings.age ?? "nil")")
-        print("drinks: \(GlobalData.Settings.drinks)")
-        print("bac: \(GlobalData.Settings.bac)")
+        let mode = GlobalData.Settings.gamemode
         
         //Save data
-        guard let name: String = GlobalData.Settings.gameName else {fatalError("gamename not set")}
-        guard let type: String = GlobalData.Settings.gametype else {fatalError("gametype not set")}
-        
-        //Gamemode is an optional and does not need to be set
-        let mode: String = GlobalData.Settings.gamemode ?? "na"
-        
-        //Can we call method from within SavedData?
-        //SavedData.saveUserNameTrial(userName: username, gameName: name, gamemode: mode, gametype: type, age: age, gender: gender, tiredness: tiredness, reactionTime: rt, failsCount: fails)
-        //        print("data saved")
-        
-        //This might be a syntax issue. (())?
-        //ToDo: add dateTimeStamp
-        //ToDo: Make this a var in GlobalData with lots of data in it. Pass whole thing back and forth (for now)
-        
-        var userData = [String : Any]()
-        
-        //ToDo: All Strings should really be propety keys!
-        userData = ["userName": username, "gameName": name, "gamemode": mode ?? "na", "gametype": type, "age": age, "gender": gender, "tiredness": tiredness, "reactionTime": rt, "failsCount": fails]
-        
-        GlobalData.DataRaw.userData.append(userData)
-        
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(GlobalData.DataRaw.userData, toFile: SavedData.ArchiveURL.path)
-        
-        if isSuccessfulSave {
-            print("game data successfully saved.")
-        } else {
-            print("failed to save game data...")
-        }
+        SavedData.saveUserNameTrial(userName: username, gameName: gameName, gamemode: mode, age: age, gender: gender, tiredness: tiredness, bac: bac, drinks: drinks, reactionTime: rt, failsCount: fails)
         
         performSegue(withIdentifier:"segueToWelcomePage", sender: self)
-
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         
+        //ToDo: Make these nils
         GlobalData.DataRaw.reactionTime = 0
         GlobalData.DataRaw.failCount = 0
         
         performSegue(withIdentifier: "segueToWelcomePage", sender: self)
     }
-    
-    
-    // I prob don't need this function. just read settings later
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        if pickerView.tag == 0 {
-        
-            if component == 0 {gender = pickerData[0][row]}
-            if component == 1 {age = pickerData[1][row]}
-            if component == 2 {tiredness = pickerData[2][row]}
-        
-        } else if pickerView.tag == 1 {
-            
-            if component == 0 {bac = drinksPickerData[0][row]}
-            if component == 1 {drinks = Int(drinksPickerData[0][row])}
-            //Safe to force unwrap because #s manually entered above
-            
-        } else {fatalError("picker tags messed up")}
-   }
-
-    //Todo: On save get text data
-    //Todo: Set data after changes here
-    // GlobalData userName = nameTextField.text
     
 }

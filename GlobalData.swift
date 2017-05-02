@@ -10,36 +10,83 @@ import Foundation
 
 class GlobalData {
     
+    struct Key {
+        
+        static var userName = "userName"
+        static var gameName = "gameName"
+        static var gamemode = "gamemode"
+        static var age = "age"
+        static var gender = "gender"
+        static var tiredness = "tiredness"
+        static var bac = "bac"
+        static var drinks = "drinks"
+        static var reactionTime = "reactionTime"
+        static var failsCount = "failsCount"
+        //ToDo: Add dateTime
+        
+    }
+    
     struct Settings {
         
         static var gamemode: String?
         
         //Options: "testDrunkness", "setBaseline"
-        static let gamemodeTestDrunkness = "testDrunkness"
-        static let gamemodeSetBaseline = "setBaseline"
-        
-        //Gametype decides whether you are recording data or you are
-        static var gametype: String?
-        
-        //Options: 'realistic", "dataCollection"
-        static let gametypeRealistic = "realistic"
-        static let gametypeDataCollection = "dataCollection"
-        
-        //For user flag whether they have played a given game or not
-        static let playedBeforeWhackamole = false
+        static let gamemodeDataCollection = "dataCollection"
+        static let gamemodeRealistic = "realistic" //only gets set temporarily
+        static let gamemodeRealisticTestDrunkness = "realisticTestDrunkness"
+        static let gamemodeRealisticSetBaseline = "realisticSetBaseline"
         
         static var gameName: String?
         static let gameNameWhackamole = "Whackamole"
         
         static var firstLoad = true
         
+        //static var username: String? //ToDo: Do I need this anymore?
+        
+        static var primaryUsername: String?
+        
         //Do I need this??
-        static var username: String?
-        static var gender: String?
-        static var age: String?
-        static var tiredness = "N/A"
-        static var drinks = 0
-        static var bac = 0.0
+//
+//        static var gender: String?
+//        static var age: String?
+//        static var tiredness = "N/A"
+//        static var drinks = 0
+//        static var bac = 0.0
+    }
+    
+    struct WhackamoleBaseline {
+        static var playedBefore = false
+        static var rt: Double?
+        static var failsCount: Int?
+        static let rtMargin = 1.1
+        static let failsMargin = 1
+        
+        struct Key {
+            static let playedBefore = "playedBefore"
+            static let rt = "rt"
+            static let failsCount = "failsCount"
+        }
+    }
+    
+    struct DataRaw {
+        
+        //ToDo: Change these all to optionals! No kill them all!
+//        static var username: String = "NotSet"
+//        static var gameName: String = "NotSet"
+//        static var gender = "male"
+//        static var tiredness = "N/A"
+//        static var age = "25-29"
+//        static var drinks = 0
+//        static var bac = 0.0
+        static var reactionTime = 0.0
+        static var failCount = 0
+        
+        static var userData = [[String:Any?]]()
+        
+        //Array<(["userName": String, "gameName": String, "gamemode": String?, "age": String?, "gender": String?, "tiredness": String?, "reactionTime": Double, "failsCount": Int])>
+        
+        //ToDo: Add dateTimeStamp
+        
     }
     
     static func getDateTimeStampCurrent() -> String {
@@ -61,35 +108,4 @@ class GlobalData {
         let minute = calendar.component(.minute, from: date as Date)
         return ["month": month, "day": day, "hour": hour, "minute": minute]
     }
-    
-    
-    struct DataBaseline {
-        static let username: String = "NotSet"
-        static let playedBeforeWhackamole = false
-        static let reactionTimeWhackamoleBaseline = 0.0
-        static let failsCountWhackamoleBaseline = 0
-    }
-    
-    struct DataRaw {
-     
-        //ToDo: Change these all to optionals!
-        static var username: String = "NotSet"
-        static var gameName: String = "NotSet"
-        static var gender = "male"
-        static var tiredness = "N/A"
-        static var age = "25-29"
-        static var drinks = 0
-        static var bac = 0.0
-        static var reactionTime = 0.0
-        static var failCount = 0
-        
-        static let userData = Array<(["userName": String, "gameName": String, "gamemode": String?, "gametype": String, "age": String?, "gender": String?, "tiredness": String?, "reactionTime": Double, "failsCount": Int])>
-        
-        //ToDo: Add dateTimeStamp
-        
-    }
-    
-    //Can I create a method to guard against prohibilited values?
-    //I think I need a setGamemode method
-    
 }

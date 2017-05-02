@@ -11,6 +11,8 @@ import UIKit
 class UserDataTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var gameNameLabel: UILabel!
+    @IBOutlet weak var gamemodeLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!

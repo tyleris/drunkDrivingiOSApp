@@ -20,10 +20,6 @@ class ViewUserDataTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
@@ -33,21 +29,50 @@ class ViewUserDataTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        
-        //Need to return however many rows of data we have!
-        return 0
+    
+        return GlobalData.DataRaw.userData.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cellID = "UserDataTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? UserDataTableViewCell else {fatalError("dequeued cell not instance of UserDataTableViewCell")}
 
-        // Configure the cell...
-
+        let i = indexPath.row
+        let data = GlobalData.DataRaw.userData[i]
+        //let k = GlobalData.Key // cant refer to static var from instance
+        
+        //Create labels for cell
+        cell.usernameLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.userName], errStr: "NA")
+        
+        cell.gamemodeLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.gamemode], errStr: "NA")
+        
+        cell.gameNameLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.gameName], errStr: "NA")
+        
+        cell.genderLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.gender], errStr: "NA")
+        
+        cell.ageLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.age], errStr: "NA")
+        
+        cell.tirednessLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.tiredness], errStr: "NA")
+        
+        cell.drinksLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.drinks], errStr: "NA")
+        
+        cell.bacLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.bac], errStr: "NA")
+    
+        cell.failsLabel.text = unwrapDicToLabel(field: data[GlobalData.Key.failsCount], errStr: "NA")
+        
+        let rt = round(Double(unwrapDicToLabel(field: data[GlobalData.Key.reactionTime], errStr: "0"))! * 10) / 10
+        cell.reactionTimeLabel.text = String(rt)
+        
         return cell
     }
-    */
+
+    func unwrapDicToLabel(field: (Any?)?, errStr: String) -> String {
+        let a = field ?? errStr
+        let b = String(describing: a ?? errStr)
+        return b
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -64,9 +89,12 @@ class ViewUserDataTableViewController: UITableViewController {
         if editingStyle == .delete {
             
             // Delete the row from the data source
+            
+            GlobalData.DataRaw.userData.remove(at: indexPath.row)
+            
+            SavedData.saveUserData(userData: GlobalData.DataRaw.userData)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
-        
-            //ToDo: NEED to update the datasource!!!
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
